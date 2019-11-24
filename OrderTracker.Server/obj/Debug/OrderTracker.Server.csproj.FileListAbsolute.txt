@@ -1,0 +1,2 @@
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Server\obj\Debug\OrderTracker.Server.csprojAssemblyReference.cache
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Server\obj\Debug\OrderTracker.Server.csproj.CoreCompileInputs.cache

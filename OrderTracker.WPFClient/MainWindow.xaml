@@ -1,0 +1,357 @@
+﻿<Window x:Class="OrderTracker.WPFClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrderTracker.WPFClient"
+        mc:Ignorable="d"
+        MouseDown="Window_MouseDown"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="MainWindow" Height="720" Width="1200">
+    
+        <Border Margin="5"
+                CornerRadius="10"
+                Background="White">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Border Background="{StaticResource PrimaryRed}"
+                    CornerRadius="10 0 0 10">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="64" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel  Orientation="Horizontal">
+                        <Viewbox Width="52" Height="52">
+                            <Grid>
+                                <Grid Name="backgroundGrid"
+                                      Width="256"
+                                      Height="256"
+                                      Visibility="Collapsed" />
+                                <Path Data="M13.705992,24.977965C12.326992,24.977965 11.205992,26.103966 11.205992,27.488966 11.205992,28.873967 12.326992,29.998967 13.705992,29.998967 15.084992,29.998967 16.205992,28.873967 16.205992,27.488966 16.205992,26.103966 15.084992,24.977965 13.705992,24.977965z M13.706997,22.301176L13.704553,22.306584C13.609628,22.50371,13.500807,22.692904,13.379373,22.872882L13.290575,22.997929 13.4748,22.983843C13.551381,22.97994 13.628461,22.977964 13.705992,22.977964 13.783523,22.977964 13.860603,22.97994 13.937185,22.983843L14.123565,22.998094 14.034669,22.872909C13.913235,22.692931,13.804415,22.503736,13.709492,22.306609z M17.765016,17.842005C16.385987,17.842006 15.265016,18.967983 15.265016,20.352993 15.265016,21.738004 16.385987,22.863004 17.765016,22.863004 19.143983,22.863004 20.265016,21.738004 20.265016,20.352993 20.265016,18.967983 19.143983,17.842006 17.765016,17.842005z M9.6490319,17.841968C8.2700315,17.841968 7.1490312,18.967969 7.1490312,20.35297 7.1490312,21.73797 8.2700315,22.86297 9.6490319,22.86297 11.028031,22.86297 12.149031,21.73797 12.149031,20.35297 12.149031,18.967969 11.028031,17.841968 9.6490319,17.841968z M14.083522,17.765641L13.948353,17.789899C13.799559,17.81275,13.648391,17.828269,13.495229,17.836077L13.383075,17.838928 13.394487,17.854851C13.509852,18.028099,13.613583,18.209768,13.704553,18.398727L13.707031,18.404212 13.709492,18.398763C13.80046,18.209805,13.904191,18.028136,14.019556,17.854888z M17.26493,15.393918L17.245778,15.431905C17.169434,15.576716,17.085453,15.716883,16.994378,15.851867L16.948555,15.916395C17.081198,15.891931,17.215591,15.873347,17.351717,15.860865L17.532469,15.848451 17.417475,15.668864C17.379847,15.606871,17.343668,15.543901,17.308987,15.480003z M9.2078223,15.278331L9.2045522,15.285568C9.1096277,15.482694,9.0008073,15.671889,8.8793736,15.851867L8.8327684,15.917496 8.9786711,15.891904C9.1229577,15.870211,9.2694623,15.85541,9.4178388,15.847847L9.529305,15.845012 9.4165123,15.668864C9.3647742,15.583624,9.3157756,15.496537,9.2696407,15.407728z M21.264998,10.820953C19.885998,10.820953 18.764998,11.946953 18.764998,13.331954 18.764998,14.716954 19.885998,15.841955 21.264998,15.841955 22.643998,15.841955 23.764998,14.716954 23.764998,13.331954 23.764998,11.946953 22.643998,10.820953 21.264998,10.820953z M13.264036,10.820953C11.885036,10.820953 10.764036,11.946953 10.764035,13.331954 10.764036,14.716954 11.885036,15.841955 13.264036,15.841955 14.643036,15.841955 15.764036,14.716954 15.764035,13.331954 15.764036,11.946953 14.643036,10.820953 13.264036,10.820953z M5.1490316,10.820953C3.770031,10.820953 2.6490316,11.946953 2.6490316,13.331954 2.6490316,14.716954 3.770031,15.841955 5.1490316,15.841955 6.5280313,15.841955 7.6490312,14.716954 7.6490312,13.331954 7.6490312,11.946953 6.5280313,10.820953 5.1490316,10.820953z M5.5308666,2.0009985C4.3498735,2.0009985 3.3368807,2.2509985 2.6218843,2.4989977 5.3518677,5.5509911 8.1628499,6.7569885 10.801833,6.0249901 11.40283,5.8589907 11.900827,5.6149912 12.271824,5.3939915 10.322836,3.1419964 8.0588508,2.0009985 5.5308666,2.0009985z M15.801036,5.3405762E-05C16.025108,-0.0022640228 16.251559,0.070305824 16.440115,0.22211552 16.869097,0.57011032 16.936095,1.1991005 16.588109,1.6290941 15.309034,3.2111006 14.626521,6.8263025 14.364575,8.9175429L14.359863,8.9564161 14.494452,8.9923263C15.668114,9.3271632,16.647795,10.128659,17.220048,11.183229L17.264517,11.270141 17.308987,11.183229C18.07199,9.7771358 19.559311,8.8209519 21.264998,8.8209519 23.745998,8.8209519 25.764998,10.843953 25.764998,13.331954 25.764998,15.663517 23.990487,17.587268 21.724392,17.81863L21.497666,17.835964 21.61253,18.015379C22.026437,18.697451 22.265016,19.497751 22.265016,20.352993 22.265016,22.839994 20.245973,24.863005 17.765016,24.863005 17.687484,24.863005 17.610403,24.861029 17.533822,24.857125L17.347278,24.842863 17.436334,24.968297C17.922071,25.688356 18.205992,26.555965 18.205992,27.488966 18.205992,29.975967 16.186992,31.998968 13.705992,31.998968 11.224992,31.998968 9.2059922,29.975967 9.2059922,27.488966 9.2059922,26.555965 9.4899142,25.688356 9.9756505,24.968297L10.064613,24.842995 9.8802242,24.857092C9.8036427,24.860995 9.7265627,24.862971 9.6490319,24.862971 7.1680312,24.862971 5.1490316,22.839971 5.1490316,20.35297 5.1490316,19.449125 5.4154859,18.606649 5.8737454,17.900236L5.9651566,17.766244 5.8333483,17.789899C5.6101584,17.824175 5.3816252,17.841956 5.1490316,17.841956 2.6680317,17.841956 0.64903164,15.818955 0.64903164,13.331954 0.64903164,10.843953 2.6680317,8.8209519 5.1490316,8.8209519 6.93225,8.8209519 8.476799,9.8660374 9.2045522,11.377711L9.2065334,11.382097 9.2085152,11.377711C9.7998147,10.149476,10.930327,9.2292624,12.289959,8.9273624L12.351592,8.9148417 12.352744,8.9049058C12.391524,8.5753202,12.445081,8.1642962,12.516706,7.6988411L12.5472,7.5066347 12.459813,7.546895C12.123161,7.698061 11.747296,7.8390169 11.33583,7.9529858 10.666834,8.1389856 9.9768386,8.2319851 9.2858429,8.2319851 6.1568627,8.2319851 3.1048822,6.3859892 0.21689987,2.7439976 0.036901474,2.5179977 -0.03609848,2.2249985 0.016901016,1.9399986 0.068901062,1.6560001 0.24289989,1.4090004 0.49189854,1.2620001 0.57889748,1.210001 2.6618843,0.0010032654 5.5308666,0.0010032654 7.6186032,0.0010032654 10.554647,0.66173649 13.329433,3.5849819L13.420545,3.6838655 13.537518,3.3261566C13.920271,2.198761 14.410383,1.1417255 15.03417,0.37111282 15.228788,0.12980461 15.512944,0.0030326843 15.801036,5.3405762E-05z"
+                                      Stretch="Uniform"
+                                      Fill="#FFFFFFFF"
+                                      Width="186"
+                                      Height="186"
+                                      Margin="0,0,0,0"
+                                      RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <TransformGroup.Children>
+                                                <RotateTransform Angle="1" />
+                                                <ScaleTransform ScaleX="-1"
+                                                                ScaleY="1" />
+                                            </TransformGroup.Children>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </Grid>
+                        </Viewbox>
+                        <TextBlock Margin="0,0,0,0"
+                                   Text="Biz"
+                                   Grid.Column="1"
+                                   VerticalAlignment="Center"
+                                   FontFamily="Cooper Black"
+                                   FontSize="48"
+                                   Foreground="{StaticResource PrimaryYellow}" />
+                        <TextBlock Text="Client"
+                                   VerticalAlignment="Center"
+                                   Grid.Column="2"
+                                   FontFamily="Cooper Black"
+                                   FontSize="48"
+                                   Foreground="{StaticResource PrimaryGreen}" />
+                    </StackPanel>
+                    <StackPanel Orientation="Vertical" Grid.Row="1">
+                        <RadioButton Content="Orders"
+                                    
+                                     FontWeight="Bold"
+                                     Margin="10">
+                            <RadioButton.Style>
+                                <Style TargetType="{x:Type RadioButton}">
+                                    <Setter Property="Foreground"
+                                            Value="White">
+                                        
+                                    </Setter>
+                                   
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type RadioButton}">
+                                                <BulletDecorator Background="Transparent"
+                                                                 Cursor="Hand"
+                                                                 Margin="0,0,0,0">
+                                                    <BulletDecorator.Bullet>
+                                                        <Viewbox Width="48"
+                                                                 Grid.Column="0">
+                                                            <Grid>
+                                                               
+                                                                <Path Data="M9.9999831,23.999999L18.999983,23.999999C19.552983,23.999999 19.999983,24.448001 19.999983,24.999999 19.999983,25.551999 19.552983,25.999999 18.999983,25.999999L9.9999831,25.999999C9.4469826,25.999999 8.9999831,25.551999 8.9999831,24.999999 8.9999831,24.448001 9.4469826,23.999999 9.9999831,23.999999z M4.9999826,23.999999L5.9999826,23.999999C6.5529826,23.999999 6.9999826,24.448001 6.9999826,24.999999 6.9999826,25.551999 6.5529826,25.999999 5.9999826,25.999999L4.9999826,25.999999C4.4469826,25.999999 3.9999826,25.551999 3.9999828,24.999999 3.9999826,24.448001 4.4469826,23.999999 4.9999826,23.999999z M9.9999831,18L18.999983,18C19.552983,18 19.999983,18.448 19.999983,19 19.999983,19.551999 19.552983,19.999999 18.999983,19.999999L9.9999831,19.999999C9.4469826,19.999999 8.9999831,19.551999 8.9999831,19 8.9999831,18.448 9.4469826,18 9.9999831,18z M4.9999826,18L5.9999826,18C6.5529826,18 6.9999826,18.448 6.9999826,19 6.9999826,19.551999 6.5529826,19.999999 5.9999826,19.999999L4.9999826,19.999999C4.4469826,19.999999 3.9999826,19.551999 3.9999828,19 3.9999826,18.448 4.4469826,18 4.9999826,18z M9.9999831,12L18.999983,12C19.552983,12 19.999983,12.448 19.999983,13 19.999983,13.552 19.552983,14 18.999983,14L9.9999831,14C9.4469826,14 8.9999831,13.552 8.9999831,13 8.9999831,12.448 9.4469826,12 9.9999831,12z M4.9999826,12L5.9999826,12C6.5529826,12 6.9999826,12.448 6.9999826,13 6.9999826,13.552 6.5529826,14 5.9999826,14L4.9999826,14C4.4469826,14 3.9999826,13.552 3.9999828,13 3.9999826,12.448 4.4469826,12 4.9999826,12z M2.0000002,5.000026L2.0000002,30.000026 22,30.000026 22,5.000026 18.999983,5.000026 18.999983,6.8999999C18.999983,7.506,18.506983,8,17.899983,8L6.0999825,8C5.4929826,8,4.9999826,7.506,4.9999826,6.8999999L4.9999826,5.000026z M10.004982,2.0000001L9.9999831,2.9060001C9.9999831,3.507,9.506983,3.9999999,8.8999827,3.9999999L6.9999826,3.9999999 6.9999826,6 16.999983,6 16.999983,3.9999999 15.100983,3.9999999C14.493983,3.9999999,13.999983,3.506,13.999983,2.9L14.004982,2.0000001z M9.1089823,0L14.908983,0C15.515983,0,16.009983,0.49399996,16.009983,1.0999998L16.004982,2.0000001 17.899983,2.0000001C18.469046,2,18.937912,2.4341797,18.994297,2.9877806L18.994919,3.0000258 22,3.0000258C23.102967,3.0000257,24,3.8969984,24,5.000026L24,30.000026C24,31.102992,23.102967,32.000026,22,32.000026L2.0000002,32.000026C0.89697289,32.000026,2.365407E-07,31.102992,0,30.000026L0,5.000026C2.365407E-07,3.8969984,0.89697289,3.0000257,2.0000002,3.0000258L5.0050471,3.0000258 5.0056674,2.9877806C5.062053,2.4341797,5.5309203,2,6.0999825,2.0000001L8.0049822,2.0000001 8.0099823,1.0939997C8.0099823,0.49300003,8.5029824,0,9.1089823,0z"
+                                                                      Stretch="Uniform"
+                                                                      Fill="#FFFFFFFF"
+                                                                      x:Name="PathOrder"
+                                                                      Width="186"
+                                                                      Height="186"
+                                                                      Margin="0,0,0,0"
+                                                                      RenderTransformOrigin="0.5,0.5">
+                                                                    <Path.RenderTransform>
+                                                                        <TransformGroup>
+                                                                            <TransformGroup.Children>
+                                                                                <RotateTransform Angle="1" />
+                                                                                <ScaleTransform ScaleX="-1"
+                                                                                                ScaleY="1" />
+                                                                            </TransformGroup.Children>
+                                                                        </TransformGroup>
+                                                                    </Path.RenderTransform>
+                                                                </Path>
+                                                            </Grid>
+                                                            <Viewbox.ToolTip>
+                                                                <ToolTip>
+                                                                    <StackPanel Width="200">
+                                                                        <StackPanel Orientation="Horizontal"
+                                                                                    Background="#FFFF6275"
+                                                                                    Width="200">
+
+                                                                            <Label Content="Order"
+                                                                                   Margin="10 5"
+                                                                                   FontSize="20"
+                                                                                   Foreground="White"
+                                                                                   FontWeight="Bold"></Label>
+                                                                        </StackPanel>
+                                                                        <TextBlock Text="Place Order Here."
+                                                                                   FontSize="14"
+                                                                                   FontWeight="ExtraBlack"
+                                                                                   TextWrapping="WrapWithOverflow"></TextBlock>
+
+
+                                                                    </StackPanel>
+                                                                </ToolTip>
+                                                            </Viewbox.ToolTip>
+                                                        </Viewbox>
+
+                                                    </BulletDecorator.Bullet>
+
+                                                    <ContentPresenter Name="CP" VerticalAlignment="Center">
+                                                        
+                                                    </ContentPresenter>
+
+                                                </BulletDecorator>
+
+
+                                                <!--If item is checked, trigger the visibility of the mark-->
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked"
+                                                             Value="true">
+                                                      
+                                                        <Setter TargetName="PathOrder"
+                                                                Property="Fill"
+                                                                Value="{StaticResource Yellow}" />
+                                                        
+                                                    </Trigger>
+
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked"
+                                                 Value="True">
+                                            <Setter Property="Foreground"
+                                                    Value="{StaticResource Yellow}" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
+                        <RadioButton Content="Order History" FontWeight="Bold" Margin="10">
+                            <RadioButton.Style>
+                                <Style TargetType="{x:Type RadioButton}">
+                                    <Setter Property="Foreground"
+                                            Value="White">
+
+                                    </Setter>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type RadioButton}">
+                                                <BulletDecorator Background="Transparent"
+                                                                 Cursor="Hand"
+                                                                 Margin="0,0,0,0">
+                                                    <BulletDecorator.Bullet>
+                                                        <Viewbox Width="48">
+                                                            <Grid>
+                                                                
+                                                                <Path Data="M15.072975,7.9629973L17.072975,7.9629973 17.072975,17.416915 22.407674,22.760966C22.797699,23.152972 22.797699,23.785983 22.405674,24.175988 22.211662,24.370992 21.955644,24.467992 21.699629,24.467992 21.443611,24.467992 21.186594,24.36999 20.991583,24.174989L15.445221,18.617904C15.274584,18.446839,15.178602,18.22926,15.15744,18.005952L15.152998,17.911 15.072975,17.911z M16.072919,0C24.854919,4.9140908E-08 31.999954,7.1419977 31.999954,15.921996 31.999954,24.701003 24.854919,31.843001 16.072919,31.843001 8.231898,31.843001 1.4599108,26.005004 0.3178797,18.262999 0.23688568,17.716994 0.61487722,17.207991 1.1618755,17.12799 1.7069206,17.04399 2.2168704,17.425994 2.2968879,17.970992 3.2948756,24.738997 9.2168853,29.843001 16.072919,29.843001 23.752927,29.843001 29.99995,23.597991 29.99995,15.921996 29.99995,8.244995 23.752927,1.9999999 16.072919,1.9999999 10.73237,1.9999999 5.8969089,5.06259 3.5754115,9.7683924L3.491152,9.947996 7.9659964,9.947996 7.9659964,11.947997 0,11.947997 0,3.9849943 1.999999,3.9849943 1.999999,8.4602679 2.0667552,8.3343962C4.8188779,3.26539,10.177176,4.9140908E-08,16.072919,0z"
+                                                                      Stretch="Uniform"
+                                                                      Fill="#FFFFFFFF"
+                                                                      Width="186"
+                                                                      Name="PathHistory"
+                                                                      Height="155"
+                                                                      Margin="0,0,0,0"
+                                                                      RenderTransformOrigin="0.5,0.5">
+                                                                    <Path.RenderTransform>
+                                                                        <TransformGroup>
+                                                                            <TransformGroup.Children>
+                                                                                <RotateTransform Angle="1" />
+                                                                                <ScaleTransform ScaleX="-1"
+                                                                                                ScaleY="1" />
+                                                                            </TransformGroup.Children>
+                                                                        </TransformGroup>
+                                                                    </Path.RenderTransform>
+                                                                </Path>
+                                                            </Grid>
+                                                        </Viewbox>
+
+
+                                                    </BulletDecorator.Bullet>
+
+                                                    <ContentPresenter VerticalAlignment="Center">
+
+                                                    </ContentPresenter>
+
+                                                </BulletDecorator>
+
+
+                                                <!--If item is checked, trigger the visibility of the mark-->
+                                                <ControlTemplate.Triggers>
+                                                    <Trigger Property="IsChecked"
+                                                             Value="true">
+
+                                                        <Setter TargetName="PathHistory"
+                                                                Property="Fill"
+                                                                Value="{StaticResource Yellow}" />
+                                                    </Trigger>
+
+                                                </ControlTemplate.Triggers>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsChecked"
+                                                 Value="True">
+                                            <Setter Property="Foreground"
+                                                    Value="{StaticResource Yellow}" />
+
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </RadioButton.Style>
+                        </RadioButton>
+                         
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                        CornerRadius="0 10 0 0"
+                        Background="{StaticResource PrimaryRed}" />
+                <ListBox Grid.Row="1"
+                         MaxWidth="880"
+                         ItemsSource="{Binding OrderedFoods,Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel ItemHeight="160"
+                                       ItemWidth="160"
+                                       Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="150" Height="150"
+                                    CornerRadius="5"
+                                    BorderThickness="2">
+                                <Grid Background="Transparent">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="20" />
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="20" />
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Text="{Binding OrderId}" Foreground="White" FontWeight="Black" />
+                                    <ListBox x:Name="foodItems"
+                                             ItemsSource="{Binding FoodItems}"
+                                             Background="Transparent"
+                                             Grid.Row="1">
+                                        <ListBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+                                                    <TextBlock HorizontalAlignment="Right"
+                                                               Margin="0 0 5 0"
+                                                               Grid.Column="0"
+                                                               Text="{Binding Index}" />
+                                                    <TextBlock Grid.Column="1"
+                                                               
+                                                               Foreground="White"
+                                                               FontWeight="SemiBold"
+                                                               Text="{Binding FoodName}" />
+                                                   
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ListBox.ItemTemplate>
+                                    </ListBox>
+                                    <StackPanel Grid.Row="2" Orientation="Horizontal"
+                                                HorizontalAlignment="Right">
+                                        <Button Width="48"
+                                                Height="20"
+                                                Foreground="White"
+                                                Content="Accept"
+                                                CommandParameter="{Binding OrderId}"
+                                                Background="{StaticResource Green}"
+                                                Command="{Binding  DataContext.AcceptCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
+                                        <Button Width="48"
+                                                Height="20"
+                                                Foreground="White"
+                                                Content="Reject"
+                                                CommandParameter="{Binding OrderId}"
+                                                Background="{StaticResource Red}"
+                                                Command="{Binding DataContext.RejectCommand,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:MainWindow}}}" />
+                                      
+                                    </StackPanel>
+                                </Grid>
+                                <Border.Style>
+                                    <Style TargetType="{x:Type Border}">
+                                       
+                                        <Setter Property="Background"
+                                                Value="{StaticResource SecondaryRed}" />
+                                        <Setter Property="BorderBrush"
+                                                Value="{StaticResource PrimaryRed}" />
+                                       
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding OrderAcceptanceStatus}"
+                                                         Value="False">
+                                                <Setter Property="Background"
+                                                        Value="Gray" />
+                                                <Setter Property="BorderBrush"
+                                                        Value="Gray" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding OrderAcceptanceStatus}"
+                                                         Value="True">
+                                                <Setter Property="Background"
+                                                        Value="{StaticResource PrimaryBlue}" />
+                                                <Setter Property="BorderBrush"
+                                                        Value="{StaticResource SecondaryBlue}" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                        
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Grid>
+        </Border> 
+     
+</Window>

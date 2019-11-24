@@ -1,0 +1,5 @@
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Data\bin\Debug\OrderTracker.Data.dll
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Data\bin\Debug\OrderTracker.Data.pdb
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Data\obj\Debug\OrderTracker.Data.dll
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Data\obj\Debug\OrderTracker.Data.pdb
+C:\Users\sbiswal\source\repos\OrderTracker\OrderTracker.Data\obj\Debug\OrderTracker.Data.csprojAssemblyReference.cache

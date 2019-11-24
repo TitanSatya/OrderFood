@@ -1,0 +1,61 @@
+﻿<Window x:Class="OrderTracker.WPFClient.NameSelection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrderTracker.WPFClient"
+        mc:Ignorable="d"
+        MouseDown="Window_MouseDown"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        Background="Transparent"
+        Title="NameSelection" Height="450" Width="320">
+
+    <Border Margin="5"
+            CornerRadius="10"
+            Background="White">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Border Background="{StaticResource PrimaryRed}"
+                    
+                    CornerRadius="10 10 0 0">
+                <Label Foreground="White"
+                       FontSize="18"
+                       FontWeight="Bold"> Select Restaurant</Label>
+            </Border>
+            <ListBox Grid.Row="1" Margin="5">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="100" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Name}"
+                                       Foreground="Black" />
+                            <Button Grid.Column="1"
+                                    Command="{Binding SelectCommand}" />
+                            <Grid.Style>
+                                <Style TargetType="{x:Type Grid}">
+                                    <Setter Property="IsEnabled"
+                                            Value="True" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsAvailable}"
+                                                     Value="False">
+                                            <Setter Property="IsEnabled"
+                                                    Value="False" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+
+                                </Style>
+                            </Grid.Style>
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+    </Border>
+</Window>
